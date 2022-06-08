@@ -1,0 +1,73 @@
+$primarycolor: #172B4D;
+$accent: #fdfdfd;
+
+$padding-height: 30px;
+$padding-width: 110px;
+
+// NO ACTOR FONT ?! must import.
+// maybe for montserrat too.
+
+//--------------------------------
+
+*, *:before, *:after {
+    margin: 0; padding: 0;
+}
+
+body {
+    box-sizing: border-box;
+}
+
+.nav {
+    background-color: $primarycolor;
+    color: $accent;
+    display: flex;
+    justify-content: space-between;
+    padding: $padding-height $padding-width;
+
+    &__logo {
+        display: flex;
+        align-items: center;
+
+        &-img {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background-color: white;
+        }
+
+        &-title {
+            font-family: "Actor";
+            text-decoration: none;
+            color: inherit;
+            font-weight: 400;
+            font-size: 23px;
+            letter-spacing: 0.22em;
+            margin-left: 24px;
+        }
+    }
+
+    &__menu {
+        list-style-type: none;
+        display: flex;
+        align-items: center;
+
+        &-notifications {
+            width: 30px;
+            height: 30px;
+            background-color: $accent;
+        }
+
+        li {
+            font-family: "Montserrat";
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 20px;
+            margin-left: 24px;
+        }
+
+        li:hover {
+            cursor: pointer;
+            color: grey;
+        }
+    }
+}
