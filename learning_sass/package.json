@@ -1,0 +1,22 @@
+{
+  "name": "learning_sass",
+  "version": "1.0.0",
+  "description": "getting used to sass by creating pages",
+  "main": "/js/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bastianigs/learnings.git"
+  },
+  "keywords": [
+    "learnings"
+  ],
+  "author": "Sebastian",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bastianigs/learnings/issues"
+  },
+  "homepage": "https://github.com/bastianigs/learnings#readme"
+}

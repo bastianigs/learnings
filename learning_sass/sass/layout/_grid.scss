@@ -1,0 +1,58 @@
+.container {
+    max-width: $max-width-fhd;
+    padding: 0 22px;
+    margin: 0 auto;
+    width: 100%;
+
+    @include media-breakpoint-up(lg) {
+        max-width: calc(#{$max-width-fhd} + 100px);
+        padding: 0 50px;
+    }
+
+    @include media-breakpoint-up(x) {
+        max-width: calc(#{$max-width-fhd} + 200px);
+        padding: 0 100px;
+    }
+
+    @include media-breakpoint-up(fhd) {
+        max-width: calc(#{$max-width-tk} + 300px);
+        padding: 0 150px;
+    }
+
+    @include media-breakpoint-up(tk) {
+        max-width: calc(#{$max-width-fk} + 400px);
+        padding: 0 200px;
+    }
+}
+
+.homepage-margin-left {
+    margin-left: 30px;
+
+    @include media-breakpoint-up(sm) {
+        margin-left: 60px;
+    }
+
+    @include media-breakpoint-up(lg) {
+        margin-left: 100px;
+    }
+
+    @include media-breakpoint-up(xl) {
+        margin-left: 160px;
+    }
+
+    @include media-breakpoint-up(xi) {
+        margin-left: 260px;
+    }
+
+    @include media-breakpoint-up(fhd) {
+        margin-left: 390px;
+    }
+
+    @include media-breakpoint-up(tk) {
+        margin-left: 260px;
+    }
+
+    @include media-breakpoint-up(ik) {
+        margin-left: 520px
+    }
+}
