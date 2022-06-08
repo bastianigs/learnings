@@ -1,9 +1,20 @@
+@import "abstracts/mixins";
+@import "abstracts/variables";
+
 $primarycolor: #172B4D;
+$primarycolor-darken: #0C1D33;
 $accent: #fdfdfd;
+$gold: #E0B677;
+$grey: #E9ECEF;
+$text: #525F7F;
+$text-lighten: #32325D;
 
 $padding-height: 30px;
 $padding-width: 110px;
+$distance: 24px;
+$s-dist: 16px;
 
+// TODO !!!
 // NO ACTOR FONT ?! must import.
 // maybe for montserrat too.
 
@@ -11,6 +22,7 @@ $padding-width: 110px;
 
 *, *:before, *:after {
     margin: 0; padding: 0;
+    box-sizing: border-box;
 }
 
 body {
@@ -24,25 +36,44 @@ body {
     justify-content: space-between;
     padding: $padding-height $padding-width;
 
+    @include media-breakpoint-down(sm) {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: $padding-height 0;
+    }
+
     &__logo {
         display: flex;
         align-items: center;
 
-        &-img {
-            display: inline-block;
-            width: 50px;
-            height: 50px;
-            background-color: white;
+        @include media-breakpoint-down(xs) {
+            flex-direction: column;
+            align-items: center;
         }
+    }
 
-        &-title {
-            font-family: "Actor";
-            text-decoration: none;
-            color: inherit;
-            font-weight: 400;
-            font-size: 23px;
-            letter-spacing: 0.22em;
-            margin-left: 24px;
+    &__img {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        background-color: white;
+
+        @include media-breakpoint-down(xs) {
+            display: block;
+        }
+    }
+
+    &__title {
+        font-family: "Actor";
+        text-decoration: none;
+        color: inherit;
+        font-weight: 400;
+        font-size: 23px;
+        letter-spacing: 0.22em;
+        margin-left: 24px;
+        @include media-breakpoint-down(xs) {
+            margin: 0;
         }
     }
 
@@ -51,23 +82,294 @@ body {
         display: flex;
         align-items: center;
 
-        &-notifications {
-            width: 30px;
-            height: 30px;
-            background-color: $accent;
-        }
-
         li {
             font-family: "Montserrat";
             font-size: 16px;
             font-weight: 400;
             line-height: 20px;
             margin-left: 24px;
+
+            &:hover {
+                cursor: pointer;
+                color: grey;
+            }
         }
 
-        li:hover {
-            cursor: pointer;
-            color: grey;
+        @include media-breakpoint-down(xs) {
+            flex-direction: column;
+            justify-content: center;
+
+            li {
+                margin: 0;
+            }
         }
+    }
+
+    &__notifications {
+        width: 30px;
+        height: 30px;
+        background-color: $accent;
+    }
+}
+
+.header {
+    height: 415px;
+    background-color: $primarycolor-darken;
+    color: $accent;
+    font-family: "Montserrat";
+    padding: 60px  $padding-width;
+    font-size: 16px;
+
+    &__info {
+        width: 35vw;
+
+        &-back {
+            &--where {
+                text-decoration: none;
+                color: inherit;
+                font-weight: 400;
+            }
+    
+            &:hover {
+                cursor: pointer;
+                color: grey;
+            }
+        }
+    
+        &-name {
+            font-weight: 400;
+            font-size: 44px;
+            line-height: 54px;
+            letter-spacing: 3px;
+            margin-bottom: $distance;
+        }
+    
+        &-desc {
+            font-weight: 300;
+            line-height: 28px;
+            margin-bottom: $distance;
+        }
+    
+        &-btn {
+            border-radius: 6px;
+            background-color: $accent;
+            text-decoration: none;
+            color: $gold;
+            padding: 8px 16px;
+            line-height: 17px;
+            font-weight: 400;
+            font-size: 14px;
+    
+            &:hover {
+                background-color: rgb(194, 194, 194);
+                color: $primarycolor-darken;
+            }
+        }
+    }
+
+}
+
+.main {
+    position: relative;
+    top: -50px;
+    display: grid;
+    grid-template-columns: repeat(12,1fr);
+    column-gap: 24px;
+    row-gap: 24px;
+    padding: 0 $padding-width;
+
+    &__card {
+        height: 100px;
+        display: flex;
+        justify-content: space-between;
+
+        font-family: "Montserrat";
+        color: $accent;
+        padding: 24px;
+        background: linear-gradient(90deg, #E0B677 0%, #0C1D33 100%);
+        border-radius: 6px;
+
+        &--1 {
+            grid-column: 1 / 5;
+        }
+
+        &--2 {
+            grid-column: 5 / 9;
+        }
+
+        &-key {
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 17px;
+            margin-bottom: 8px;
+        }
+
+        &-value {
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 24px;
+        }
+
+        &-img {
+            width: 50px;
+            height: 50px;
+            background-color: white;
+            border-radius: 100%;
+            border: 1px solid $accent;
+        }
+    }
+
+    &__next {
+        grid-column: 9 / 13;
+        // width: 390px;
+        height: 300px;
+        background-color: $accent;
+        border-radius: 6px;
+        box-shadow: 0px 4px 32px rgba(136, 152, 170, 0.16);
+        font-family: "Montserrat";
+        
+        &-header {
+            // margin: $s-dist;
+            padding: $s-dist;
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 20px;
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        hr {
+            border-width: 2px;
+            border: 1px solid $grey;
+        }
+
+        &-client {
+            border: 2px solid $grey;
+            border-radius: 6px;
+            margin: $s-dist;
+            padding: $s-dist;
+
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 20px;
+            color: $text-lighten;
+
+            &-name {
+                color: $text;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 20px;
+            }
+
+            &-visits {
+                margin: $s-dist 0;
+            }
+
+            &-bottom {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                span {
+                    border: 2px solid grey;
+                }
+            }
+        }
+
+        &-services {
+            max-width: 100%;
+            color: $text;
+            padding: 0 $s-dist;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 20px;
+
+            ul {
+                list-style-position: inside;
+                padding-left: $s-dist;
+                color: $text-lighten;
+            }
+
+            li {
+                color: $text-lighten;
+                font-weight: 400;
+                padding: 5px;
+            }
+
+            &-paid {
+                position: absolute;
+                right: 150px;
+                top: 215px;
+                display: flex;
+                color: green;
+                align-items: center;
+
+                div {
+                    width: 20px;
+                    height: 20px;
+                    background-color: green;
+                    color: white;
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+    &__appointments {
+        grid-column: 9 / 13;
+        // width: 390px;
+        font-family: "Montserrat";
+        background-color: $accent;
+        border-radius: 6px;
+        box-shadow: 0px 4px 32px rgba(136, 152, 170, 0.16);
+
+        &-header {
+            color: $text;
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 20px;
+            padding: $s-dist;
+        }
+
+        hr {
+            border-width: 2px;
+            border: 1px solid $grey;
+        }
+
+        ul {
+            padding: $s-dist;
+        }
+
+        li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: $s-dist;
+
+            a {
+                background-color: $primarycolor-darken;
+                padding: 10px $s-dist;
+                text-decoration: none;
+                color: $accent;
+                box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.08), 0px 4px 6px rgba(50, 50, 93, 0.1);
+                border-radius: 6px;
+
+                &:hover {
+                    cursor: pointer;
+                    background-color: $text-lighten;
+                }
+            }
+
+            p {
+                margin: 4px 0;
+            }
+        }
+
+
+    }
+
+    &__calendar {
+        grid-column: 1 / 9;
+        background-color: red;
     }
 }
