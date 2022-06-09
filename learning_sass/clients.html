@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clients Page</title>
+
+    <link rel="stylesheet" href="./assets/fonts/Actor/index.css">
+    <link rel="stylesheet" href="./assets/fonts/Montserrat/index.css">
+
+    <link rel="stylesheet" href="./sass/main.css">
+    <link rel="stylesheet" href="./sass/pages/clients.css">
+</head>
+<body>
+    <div class="nav">
+        <div class="nav__logo">
+            <img class="nav__logo-img" src="./assets/icons/logo.svg" alt="logo">
+            <a class="nav__logo-title" href="#">Fenix Admin</a>
+        </div>
+        <ul class="nav__menu">
+            <li class="nav__menu-notifications"><img src="./assets/icons/bell.svg" alt="bell"></li>
+            <li>Appointments</li>
+            <li>Payments</li>
+            <li>Clients</li>
+        </ul>
+    </div>
+
+    <div class="info">
+        <div class="info__back">
+            <span><</span>
+            <a class="info__back--where" href="#">Dashboard</a>
+        </div>
+        <h1 class="info__name">Clients Page</h1>
+        <a class="info__btn" href="#">New appointment</a>
+    </div>
+
+    <div class="main">
+        <div class="main__clients">
+            <div class="main__clients-header">
+                All clients
+            </div>
+            <table class="main__clients-table">
+                <tr>
+                    <th>CLIENT NAME</th>
+                    <th>VISITS</th>
+                    <th>FIRST VISIT</th>
+                    <th>AGE</th>
+                    <th></th>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script src="./js/clients.js"></script>
+</body>
+</html>

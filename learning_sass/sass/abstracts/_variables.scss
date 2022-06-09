@@ -1,17 +1,20 @@
-//colors
-$color-primary: #032040;
-$color-secondary: #92BAD9;
-$color-accent: #BB9365;
+// colors
+$primarycolor: #172B4D;
+$primarycolor-darken: #0C1D33;
+$accent: #fdfdfd;
+$gold: #E0B677;
+$grey: #E9ECEF;
+$green: #00BB78;
+$text: #525F7F;
+$text-lighten: #32325D;
+$table-th: #8898AA;
+$table-th-bg: #F6F9FC;
 
-$color-primary-light: #59C1D3;
-$color-white: #fff;
-$color-black: #01060D;
-$color-gray: #758F99;
-$color-gray-2: #E2E1DC;
-$color-gray-light: #F8F8F8;
-$color-gray-light-2: #EDEDEA;
-$color-gray-dark: #131A3D;
-$color-danger: #ED1B24;
+// padding and margin
+$padding-height: 5px;
+$padding-width: 110px;
+$distance: 24px;
+$s-dist: 16px;
 
 //grid
 $max-width-xl: 1260px;

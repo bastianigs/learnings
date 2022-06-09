@@ -1,23 +1,6 @@
 @import "abstracts/mixins";
 @import "abstracts/variables";
 
-$primarycolor: #172B4D;
-$primarycolor-darken: #0C1D33;
-$accent: #fdfdfd;
-$gold: #E0B677;
-$grey: #E9ECEF;
-$green: #00BB78;
-$text: #525F7F;
-$text-lighten: #32325D;
-
-$padding-height: 5px;
-$padding-width: 110px;
-$distance: 24px;
-$s-dist: 16px;
-// TODO !!!
-// NO ACTOR FONT ?! must import.
-// maybe for montserrat too.
-
 /* breakpoints are at the end of every major div/block */
 
 //--------------------------------
@@ -143,6 +126,8 @@ body {
     font-size: 16px;
 
     &__back {
+        margin-bottom: $distance;
+        
         &--where {
             text-decoration: none;
             color: inherit;
@@ -379,7 +364,6 @@ body {
         }
 
         hr {
-            border-width: 2px;
             border: 1px solid $grey;
         }
 

@@ -184,6 +184,10 @@ body {
   font-size: 16px;
 }
 
+.info__back {
+  margin-bottom: 24px;
+}
+
 .info__back--where {
   text-decoration: none;
   color: inherit;
@@ -459,7 +463,6 @@ body {
 }
 
 .main__appointments hr {
-  border-width: 2px;
   border: 1px solid #E9ECEF;
 }
 
