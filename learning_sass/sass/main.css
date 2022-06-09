@@ -23,7 +23,7 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 30px 110px;
+  padding: 5px 110px;
 }
 
 .nav__logo {
@@ -35,20 +35,22 @@ body {
           align-items: center;
 }
 
-.nav__img {
-  width: 50px;
-  height: 50px;
-  background-color: white;
+.nav__logo:hover {
+  cursor: pointer;
 }
 
-.nav__title {
+.nav__logo-img {
+  width: 100px;
+  max-height: 70px;
+}
+
+.nav__logo-title {
   font-family: "Actor";
   text-decoration: none;
   color: inherit;
   font-weight: 400;
   font-size: 23px;
   letter-spacing: 0.22em;
-  margin-left: 24px;
 }
 
 .nav__menu {
@@ -74,21 +76,24 @@ body {
   color: grey;
 }
 
-.nav__notifications {
-  width: 30px;
-  height: 30px;
-  background-color: #fdfdfd;
+.nav__menu-notifications {
+  height: 20px;
+  margin: auto 0;
+}
+
+.nav__menu-notifications:hover {
+  background-color: grey;
 }
 
 @media only screen and (max-width: 1200px) {
   .nav {
-    padding: 30px 55px;
+    padding: 5px 55px;
   }
 }
 
 @media only screen and (max-width: 768px) {
   .nav {
-    padding: 15px 27.5px;
+    padding: 2.5px 27.5px;
   }
 }
 
@@ -101,7 +106,7 @@ body {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    padding: 15px 0;
+    padding-bottom: 10px;
   }
   .nav__logo {
     margin-bottom: 16px;
@@ -110,7 +115,7 @@ body {
 
 @media only screen and (max-width: 390px) {
   .nav {
-    padding: 7.5px 0;
+    padding: 1.25px 0;
   }
   .nav__logo {
     -webkit-box-orient: vertical;
@@ -121,7 +126,7 @@ body {
         -ms-flex-align: center;
             align-items: center;
   }
-  .nav__title {
+  .nav__logo-title {
     margin: 0;
   }
   .nav__menu {
@@ -141,7 +146,7 @@ body {
 
 @media only screen and (max-width: xspx) {
   .nav {
-    padding: 7.5px 0;
+    padding: 1.25px 0;
   }
   .nav__logo {
     -webkit-box-orient: vertical;
@@ -152,7 +157,7 @@ body {
         -ms-flex-align: center;
             align-items: center;
   }
-  .nav__title {
+  .nav__logo-title {
     margin: 0;
   }
   .nav__menu {
@@ -369,20 +374,23 @@ body {
   margin: 16px 0;
 }
 
-.main__next-client-bottom {
+.main__next-client-tel {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
 }
 
-.main__next-client-bottom span {
+.main__next-client-tel span {
   border: 2px solid grey;
+}
+
+.main__next-client-view {
+  position: absolute;
+  right: 32px;
+  top: 160px;
 }
 
 .main__next-services {
@@ -410,21 +418,25 @@ body {
   position: absolute;
   right: 16px;
   top: 215px;
+  height: 40px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  color: green;
+  color: #00BB78;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
 }
 
 .main__next-services-paid div {
-  width: 20px;
   height: 20px;
-  background-color: green;
-  color: white;
-  text-align: center;
+  background-color: #00BB78;
+  border-radius: 100%;
+  margin-right: 5px;
+}
+
+.main__next-services-paid div img {
+  height: 20px;
 }
 
 .main__appointments {

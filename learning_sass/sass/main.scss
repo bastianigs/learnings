@@ -6,14 +6,14 @@ $primarycolor-darken: #0C1D33;
 $accent: #fdfdfd;
 $gold: #E0B677;
 $grey: #E9ECEF;
+$green: #00BB78;
 $text: #525F7F;
 $text-lighten: #32325D;
 
-$padding-height: 30px;
+$padding-height: 5px;
 $padding-width: 110px;
 $distance: 24px;
 $s-dist: 16px;
-
 // TODO !!!
 // NO ACTOR FONT ?! must import.
 // maybe for montserrat too.
@@ -42,22 +42,24 @@ body {
     &__logo {
         display: flex;
         align-items: center;
-    }
 
-    &__img {
-        width: 50px;
-        height: 50px;
-        background-color: white;
-    }
+        &:hover {
+            cursor: pointer;
+        }
 
-    &__title {
-        font-family: "Actor";
-        text-decoration: none;
-        color: inherit;
-        font-weight: 400;
-        font-size: 23px;
-        letter-spacing: 0.22em;
-        margin-left: 24px;
+        &-img {
+            width: 100px;
+            max-height: 70px;
+        }
+    
+        &-title {
+            font-family: "Actor";
+            text-decoration: none;
+            color: inherit;
+            font-weight: 400;
+            font-size: 23px;
+            letter-spacing: 0.22em;
+        }
     }
 
     &__menu {
@@ -77,12 +79,15 @@ body {
                 color: grey;
             }
         }
-    }
 
-    &__notifications {
-        width: 30px;
-        height: 30px;
-        background-color: $accent;
+        &-notifications {
+            height: 20px;
+            margin: auto 0;
+
+            &:hover {
+                background-color: grey;
+            }
+        }
     }
 
     @include media-breakpoint-down(x) {
@@ -91,12 +96,14 @@ body {
     
     @include media-breakpoint-down(md) {
         padding: ($padding-height / 2) ($padding-width / 4);
+
     }
 
     @include media-breakpoint-down(sm) {
         flex-direction: column;
         align-items: center;
-        padding: ($padding-height / 2) 0;
+        // padding: $padding-height*4 0;
+        padding-bottom: $padding-height*2;
 
         &__logo {
             margin-bottom: $s-dist;
@@ -109,10 +116,10 @@ body {
         &__logo {
             flex-direction: column;
             align-items: center;
-        }
 
-        &__title {
-            margin: 0;
+            &-title {
+                margin: 0;
+            }
         }
 
         &__menu {
@@ -297,13 +304,18 @@ body {
                 margin: $s-dist 0;
             }
 
-            &-bottom {
+            &-tel {
                 display: flex;
                 align-items: center;
-                justify-content: space-between;
                 span {
                     border: 2px solid grey;
                 }
+            }
+
+            &-view {
+                position: absolute;
+                right: $s-dist*2;
+                top: 160px;
             }
         }
 
@@ -331,16 +343,21 @@ body {
                 position: absolute;
                 right: $s-dist;
                 top: 215px;
+                height: 40px;
                 display: flex;
-                color: green;
+                color: $green;
                 align-items: center;
 
+                
                 div {
-                    width: 20px;
                     height: 20px;
-                    background-color: green;
-                    color: white;
-                    text-align: center;
+                    background-color: $green;
+                    border-radius: 100%;
+                    margin-right: 5px;
+
+                    img {
+                        height: 20px;
+                    }
                 }
             }
         }
