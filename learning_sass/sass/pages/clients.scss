@@ -4,7 +4,7 @@
 .main {
     position: static;
     display: block;
-    padding: 80px $padding-width;
+    padding: 60px $padding-width;
 
     &__clients {
         font-family: "Montserrat";
@@ -55,6 +55,10 @@
 
             a {
                 color: $text;
+
+                &:hover {
+                    color: black;
+                }
             }
         }
     }

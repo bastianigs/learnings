@@ -63,7 +63,9 @@ body {
           align-items: center;
 }
 
-.nav__menu li {
+.nav__menu li a {
+  text-decoration: none;
+  color: #fdfdfd;
   font-family: "Montserrat";
   font-size: 16px;
   font-weight: 400;
@@ -71,14 +73,16 @@ body {
   margin-left: 24px;
 }
 
-.nav__menu li:hover {
+.nav__menu li a:hover {
   cursor: pointer;
   color: grey;
 }
 
 .nav__menu-notifications {
-  height: 20px;
+  height: 30px;
   margin: auto 0;
+  border-radius: 50%;
+  padding: 2px;
 }
 
 .nav__menu-notifications:hover {

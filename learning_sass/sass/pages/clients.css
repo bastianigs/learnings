@@ -1,7 +1,7 @@
 .main {
   position: static;
   display: block;
-  padding: 80px 110px;
+  padding: 60px 110px;
 }
 
 .main__clients {
@@ -56,5 +56,9 @@
 
 .main__clients-table a {
   color: #525F7F;
+}
+
+.main__clients-table a:hover {
+  color: black;
 }
 /*# sourceMappingURL=clients.css.map */

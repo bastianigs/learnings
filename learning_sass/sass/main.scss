@@ -50,7 +50,9 @@ body {
         display: flex;
         align-items: center;
 
-        li {
+        li a {
+            text-decoration: none;
+            color: $accent;
             font-family: "Montserrat";
             font-size: 16px;
             font-weight: 400;
@@ -64,8 +66,10 @@ body {
         }
 
         &-notifications {
-            height: 20px;
+            height: 30px;
             margin: auto 0;
+            border-radius: 50%;
+            padding: 2px;
 
             &:hover {
                 background-color: grey;
