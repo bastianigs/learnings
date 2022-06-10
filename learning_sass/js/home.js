@@ -49,7 +49,7 @@ function loadData() {
 }
 
 function renderNextClient() {
-    const services = [ "Service option 1", "Service option 2", "Service option 2", "Service option 2", "Service option 2" ];
+    const services = [ "Service option 1", "Service option 2" ];
 
     clientElem.appTime.innerText = "Today, 17:00";
     clientElem.Name.innerText = "Jessica Jones";
