@@ -1,0 +1,108 @@
+.navbar {  
+    background-color: $primarycolor;
+    color: $accent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: $padding-height $padding-width;
+
+    &__logo {
+        display: flex;
+        align-items: center;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &-img {
+            width: 50px;
+            max-height: 70px;
+            margin-right: $distance;
+        }
+    
+        &-title {
+            font-family: "Actor";
+            text-decoration: none;
+            color: inherit;
+            font-weight: 400;
+            font-size: 23px;
+            letter-spacing: 0.22em;
+        }
+    }
+
+    &__menu {
+        list-style-type: none;
+        display: flex;
+        align-items: center;
+
+        li a {
+            text-decoration: none;
+            color: $accent;
+            font-family: "Montserrat";
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 20px;
+            margin: 0 12px;
+
+            &:hover {
+                cursor: pointer;
+                color: grey;
+            }
+        }
+
+        &-notifications {
+            height: 30px;
+            margin: auto 0;
+            border-radius: 50%;
+            padding: 2px;
+
+            &:hover {
+                background-color: grey;
+            }
+        }
+    }
+
+    @include media-breakpoint-down(x) {
+        padding: $padding-height ($padding-width / 2);
+    }
+    
+    @include media-breakpoint-down(md) {
+        padding: ($padding-height / 2) ($padding-width / 4);
+
+    }
+
+    @include media-breakpoint-down(sm) {
+        flex-direction: column;
+        align-items: center;
+        // padding: $padding-height*4 0;
+        padding-bottom: $padding-height*2;
+
+        &__logo {
+            margin-bottom: $s-dist;
+        }
+    }
+
+    @include media-breakpoint-down(xs) {
+        padding: ($padding-height / 4) 0;
+
+        &__logo {
+            flex-direction: column;
+            align-items: center;
+
+            &-img,
+            &-title {
+                margin: 0;
+            }
+        }
+
+        &__menu {
+            flex-direction: column;
+            justify-content: center;
+
+            li {
+                margin: 0;
+                margin-bottom: 15px;
+            }
+        }
+    }
+}

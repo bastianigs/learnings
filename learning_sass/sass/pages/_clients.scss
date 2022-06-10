@@ -1,10 +1,28 @@
-@import "../abstracts/mixins";
-@import "../abstracts/variables";
-
 .main {
-    position: static;
-    display: block;
-    padding: 60px $padding-width;
+
+    &--block {
+        position: static;
+        display: block;
+        padding: 60px $padding-width;
+
+        @include media-breakpoint-down(1280) {
+            td {
+                font-size: 14px;
+            }
+        }
+    
+        @include media-breakpoint-down(x) {
+            padding: 0 ($padding-width / 2);
+        }
+    
+        @include media-breakpoint-down(md) {
+            padding: 0 ($padding-width / 4);
+        }
+
+        @include media-breakpoint-down(xs) {
+            padding: 0;
+        }
+    }
 
     &__clients {
         font-family: "Montserrat";
@@ -59,6 +77,13 @@
                 &:hover {
                     color: black;
                 }
+            }
+        }
+
+        @include media-breakpoint-down(sm) {
+            th,
+            td {
+                font-size: 10px;
             }
         }
     }

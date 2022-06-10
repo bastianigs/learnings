@@ -9,30 +9,30 @@
     <link rel="stylesheet" href="./assets/fonts/Actor/index.css">
     <link rel="stylesheet" href="./assets/fonts/Montserrat/index.css">
 
-    <link rel="stylesheet" href="./sass/main.css">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <div class="nav">
-        <div class="nav__logo">
-            <img class="nav__logo-img" src="./assets/icons/logo.svg" alt="logo">
-            <a class="nav__logo-title" href="./index.html">Fenix Admin</a>
+    <div class="navbar">
+        <div class="navbar__logo">
+            <img class="navbar__logo-img" src="./assets/icons/logo.svg" alt="logo">
+            <a class="navbar__logo-title" href="./index.html">Fenix Admin</a>
         </div>
-        <ul class="nav__menu">
-            <li><a href="#"><img class="nav__menu-notifications" src="./assets/icons/bell.svg" alt="bell"></a></li>
+        <ul class="navbar__menu">
+            <li><a href="#"><img class="navbar__menu-notifications" src="./assets/icons/bell.svg" alt="bell"></a></li>
             <li><a href="#">Appointments</a></li>
             <li><a href="#">Payments</a></li>
             <li><a href="./clients.html">Clients</a></li>
         </ul>
     </div>
 
-    <div class="info">
-        <div class="info__back">
-            <span><</span>
-            <a class="info__back--where" href="#">Clients</a>
+    <div class="header">
+        <div class="header__back">
+            <i class="header__back-arrow"></i>
+            <a class="header__back-where" href="#">Clients</a>
         </div>
-        <h1 class="info__name">Hello Naila,</h1>
-        <p class="info__desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam obcaecati tempora nihil repellat id hic quam, corrupti non commodi aliquid.</p>
-        <a class="info__btn" href="#">New appointment</a>
+        <h1 class="header__name">Hello <span>Naila</span>,</h1>
+        <p class="header__desc">This is your overview page. You can see your agenda, client profiles and payments.</p>
+        <a class="header__btn" href="#">New appointment</a>
     </div>
 
     <div class="main">
@@ -62,7 +62,7 @@
                 <p class="main__next-client-name">Jessica Jones</p>
                 <p class="main__next-client-visits">10 Visites</p>
                 <div class="main__next-client-tel">
-                    <img src="./assets/icons/phone.svg" alt="phone"> +0056 069 123
+                    <img src="./assets/icons/phone.svg" alt="phone"> <p>+0056 069 123</p>
                 </div>
                 <a class="main__next-client-view" href="#">View profile</a> 
             </div>

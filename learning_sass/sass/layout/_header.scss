@@ -1,0 +1,117 @@
+.header {
+    height: 415px;
+    background-color: $primarycolor-darken;
+    // background: url(../../assets/icons/logo.svg);
+    // background-repeat: no-repeat;
+    // background-size: 600px;
+    // background-position-y: -200px;
+    // background-position-x: -200px;
+    // transform: scaleX(-1);
+    /* guess we better just use a background image, instead of loading a big svg to put 1/4 of it in the view */
+
+    color: $accent;
+    font-family: "Montserrat";
+    padding: 60px  $padding-width;
+    font-size: 16px;
+
+    &__back {
+        width: 100px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        margin-bottom: 8px;
+
+        
+        &-where {
+            text-decoration: none;
+            color: inherit;
+            line-height: 16px;
+            font-weight: 400;
+            margin-left: 8px;
+        }
+
+        &-arrow {
+            border: solid $accent;
+            border-width: 0 3px 3px 0;
+            padding: 3px;
+            margin-bottom: 2px;
+
+            transform: rotate(135deg);
+            -webkit-transform: rotate(135deg);
+
+            i {
+                width: 10px;
+                height: 10px;
+            }
+        }
+
+        &:hover {
+            cursor: pointer;
+            color: grey;
+
+            i {
+                border-color: grey;
+            }
+        }
+    }
+
+    &__name {
+        font-weight: 400;
+        font-size: 44px;
+        line-height: 54px;
+        letter-spacing: 3px;
+        margin-bottom: $distance;
+    }
+
+    &__desc {
+        width: 400px;
+        font-weight: 300;
+        line-height: 28px;
+        margin-bottom: 16px;
+    }
+
+    &__btn {
+        border-radius: 6px;
+        background-color: $accent;
+        text-decoration: none;
+        color: $gold;
+        padding: 8px 16px;
+        line-height: 17px;
+        font-weight: 400;
+        font-size: 14px;
+
+        &:hover {
+            background-color: rgb(194, 194, 194);
+            color: $primarycolor-darken;
+        }
+    }
+
+    @include media-breakpoint-down(x) {
+        padding: 60px ($padding-width / 2);
+
+        &__name {
+            font-size: 35px;
+        }
+
+        &__desc {
+            font-size: 14px;
+        }
+    }
+
+    @include media-breakpoint-down(md) {
+        padding: 60px ($padding-width / 4) 0 ($padding-width / 4);
+    }
+
+    @include media-breakpoint-down(sm) {
+        &__desc {
+            width: 100%;
+        }
+    }
+
+    @include media-breakpoint-down(xs) {
+        &__name {
+            font-size: 30px;
+            margin-bottom: $distance / 2;
+        }
+    }
+}

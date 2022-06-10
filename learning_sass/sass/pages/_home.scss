@@ -1,0 +1,258 @@
+/* breakpoints are at the end of every major div/block */
+
+.main {
+    position: relative;
+    top: -50px;
+    display: grid;
+    grid-template-columns: repeat(12,1fr);
+    column-gap: 24px;
+    row-gap: 24px;
+    padding: 0 $padding-width;
+
+    &__card {
+        height: 100px;
+        display: flex;
+        justify-content: space-between;
+
+        font-family: "Montserrat";
+        color: $accent;
+        padding: 24px;
+        background: linear-gradient(90deg, #E0B677 0%, #0C1D33 100%);
+        border-radius: 6px;
+
+        &:nth-child(1) {
+            grid-column: 1 / 5;
+        }
+
+        &:nth-child(2) {
+            grid-column: 5 / 9;
+        }
+
+        &-key {
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 17px;
+            margin-bottom: 8px;
+        }
+
+        &-value {
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 24px;
+        }
+
+        &-img {
+            width: 50px;
+            height: 50px;
+            background-color: white;
+            border-radius: 100%;
+            border: 1px solid $accent;
+            object-fit: fill;
+        }
+    }
+
+    &__next {
+        position: relative;
+        grid-column: 9 / 13;
+        height: 300px;
+        background-color: $accent;
+        border-radius: 6px;
+        box-shadow: 0px 4px 32px rgba(136, 152, 170, 0.16);
+        font-family: "Montserrat";
+        font-size: 16px;
+        
+        &-header {
+            color: $text;
+            padding: $s-dist;
+            font-weight: 700;
+            line-height: 20px;
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        hr {
+            border-width: 2px;
+            border: 1px solid $grey;
+        }
+
+        &-client {
+            border: 2px solid $grey;
+            border-radius: 6px;
+            margin: $s-dist;
+            padding: $s-dist;
+            height: 125px;
+
+            font-weight: 300;
+            line-height: 20px;
+            color: $text-lighten;
+
+            &-name {
+                color: $text;
+                font-weight: 400;
+            }
+
+            &-visits {
+                margin: $s-dist 0;
+            }
+
+            &-tel {
+                display: flex;
+                align-items: center;
+                span {
+                    border: 2px solid grey;
+                }
+            }
+
+            &-view {
+                position: absolute;
+                right: $s-dist*2;
+                top: 160px;
+            }
+        }
+
+        &-services {
+            max-width: 100%;
+            color: $text;
+            padding: 0 $s-dist;
+            padding-bottom: 16px;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 20px;
+
+            p:first-child {
+                padding-bottom: 6px;
+            }
+
+            ul {
+                list-style-position: inside;
+                padding-left: $s-dist;
+                color: $text-lighten;
+            }
+
+            li {
+                color: $text-lighten;
+                font-weight: 400;
+                padding-bottom: 6px;
+            }
+
+            &-paid {
+                position: absolute;
+                right: $s-dist;
+                top: 202px;
+                height: 40px;
+                display: flex;
+                color: $green;
+                align-items: center;
+
+                div {
+                    height: 20px;
+                    background-color: $green;
+                    border-radius: 100%;
+                    margin-right: 5px;
+
+                    img {
+                        height: 20px;
+                    }
+                }
+            }
+        }
+    }
+
+    &__appointments {
+        grid-column: 9 / 13;
+        font-family: "Montserrat";
+        background-color: $accent;
+        border-radius: 6px;
+        box-shadow: 0px 4px 32px rgba(136, 152, 170, 0.16);
+        font-size: 16px;
+        line-height: 20px;
+        font-weight: 400;
+
+        &-header {
+            color: $text;
+            font-weight: 700;
+            padding: $s-dist;
+        }
+
+        hr {
+            border: 1px solid $grey;
+        }
+
+        ul {
+            padding: $s-dist;
+            padding-top: 0;
+        }
+
+        li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: ($s-dist / 2) $s-dist;
+            font-weight: 400;
+
+            a {
+                background-color: $primarycolor-darken;
+                padding: 8px $s-dist;
+                margin-left: 5px;
+                text-decoration: none;
+                color: $accent;
+                box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.08), 0px 4px 6px rgba(50, 50, 93, 0.1);
+                border-radius: 6px;
+
+                &:hover {
+                    cursor: pointer;
+                    background-color: $text-lighten;
+                }
+            }
+
+            p {
+                margin: 4px 0;
+            }
+        }
+
+
+    }
+
+    &__calendar {
+        grid-column: 1 / 9;
+    }
+
+    @include media-breakpoint-down(1280) {
+        ul,
+        &__next p,
+        &__next a {
+            font-size: 14px;
+        }
+    }
+
+    @include media-breakpoint-down(x) {
+        grid-template-columns: repeat(8,1fr);
+        padding: 0 ($padding-width / 2);
+
+        &__next {
+            grid-column: 1 / 5;
+        }
+
+        &__appointments {
+            grid-column: 5 / 9;
+        }
+    }
+
+    @include media-breakpoint-down(md) {
+        grid-template-columns: repeat(4,1fr);
+        padding: 0 ($padding-width / 4);
+
+        &__card:nth-child(2) {
+            grid-column: 1 / 5;
+        }
+
+        &__appointments {
+            grid-column: 1  / 5;
+        }
+
+        &__calendar {
+            grid-column: 1 / 5;
+        }
+    }
+}
