@@ -352,6 +352,30 @@ body {
       .main__calendar {
         grid-column: 1 / 5; } }
 
+.arrows {
+  display: flex;
+  align-items: center;
+  margin-bottom: 7px; }
+  .arrows-up {
+    border: solid #8898AA;
+    border-width: 0 3px 3px 0;
+    padding: 3px;
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg); }
+    .arrows-up--on {
+      border-color: #525F7F; }
+  .arrows-down {
+    position: relative;
+    right: 9px;
+    top: 5px;
+    border: solid #8898AA;
+    border-width: 0 3px 3px 0;
+    padding: 3px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg); }
+    .arrows-down--on {
+      border-color: #525F7F; }
+
 .main--block {
   position: static;
   display: block;
@@ -392,16 +416,24 @@ body {
       border: 1px solid #E9ECEF;
       border-left: 0;
       border-right: 0; }
-    .main__clients-table tr:nth-child(1) {
+    .main__clients-table thead {
       height: 44px;
       color: #8898AA;
       background-color: #F6F9FC;
       font-weight: 500;
       font-size: 12px;
       line-height: 12px; }
-      .main__clients-table tr:nth-child(1) th {
+      .main__clients-table thead th {
         padding: 16px;
         text-align: left; }
+        .main__clients-table thead th div {
+          display: flex;
+          align-items: center; }
+          .main__clients-table thead th div .arrows {
+            margin-left: 10px; }
+        .main__clients-table thead th:hover {
+          cursor: pointer;
+          background-color: #E9ECEF; }
     .main__clients-table td {
       font-weight: 500;
       font-size: 16px;

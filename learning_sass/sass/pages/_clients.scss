@@ -1,3 +1,38 @@
+.arrows {
+    display: flex;
+    align-items: center;
+    margin-bottom: 7px;
+
+    &-up {
+        border: solid $table-th;
+        border-width: 0 3px 3px 0;
+        padding: 3px;
+
+        transform: rotate(-135deg);
+        -webkit-transform: rotate(-135deg);
+
+        &--on {
+            border-color: $text;
+        }
+    }
+
+    &-down {
+        position: relative;
+        right: 9px;
+        top: 5px;
+        border: solid $table-th;
+        border-width: 0 3px 3px 0;
+        padding: 3px;
+
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+
+        &--on {
+            border-color: $text;
+        }
+    }
+}
+
 .main {
 
     &--block {
@@ -50,7 +85,7 @@
                 border-right: 0;
             }
 
-            tr:nth-child(1) {
+            thead {
                 height: 44px;
                 color: $table-th;
                 background-color: $table-th-bg;
@@ -61,6 +96,20 @@
                 th {
                     padding: $s-dist;
                     text-align: left;
+
+                    div {
+                        display: flex;
+                        align-items: center;
+
+                        .arrows {
+                            margin-left: 10px;
+                        }
+                    }
+
+                    &:hover {
+                        cursor: pointer;
+                        background-color: $grey;
+                    }
                 }
             }
 
