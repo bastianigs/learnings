@@ -287,6 +287,8 @@ body {
           margin-right: 5px; }
           .main__next-services-paid div img {
             height: 20px; }
+        .main__next-services-paid--not {
+          color: red; }
   .main__appointments {
     grid-column: 9 / 13;
     font-family: "Montserrat";
