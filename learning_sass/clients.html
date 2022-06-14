@@ -38,7 +38,29 @@
         <div class="main__clients">
             <div class="main__clients-header">
                 All clients
+                <div class="main__clients-header-search">
+                    <br>
+                    <input id="search" type="text" placeholder="Search...">
+                    <button id="searchBtn">🔍</button> <!-- backup: 🔍 -->
+                </div>
+                <div class="main__clients-header-filter">
+                    <br>
+                    <label for="filter">Sort by</label>
+                    <select name="filter" id="filter">
+                        <!-- named the values according to property name in JS and added 1/2 at the end, for ASC/DESC -->
+                        <option value="none">None</option>
+                        <option value="name1">Name A-Z</option>
+                        <option value="name2">Name Z-A</option>
+                        <option value="visits1">Visits ASC</option>
+                        <option value="visits2">Visits DESC</option>
+                        <option value="firstVisit1">First Visit ASC</option>
+                        <option value="firstVisit2">First Visit DESC</option>
+                        <option value="age1">Age ASC</option>
+                        <option value="age2">Age DESC</option>
+                    </select>
+                </div>
             </div>
+
             <table class="main__clients-table">
                 <thead>
                 </thead>

@@ -2,6 +2,9 @@ const clientsJSON = "../assets/json/clients.json";
 const table = document.querySelector( "table" );
 const thead = document.querySelector( "table thead" );
 const tbody = document.querySelector( "table tbody" );
+const filterElem = document.getElementById( "filter" );
+const searchElem = document.getElementById( "search" );
+const searchBtnElem = document.getElementById( "searchBtn" );
 
 // filters and their status
 const STS_NONE = 0;
@@ -17,98 +20,187 @@ const FILTER_AGE = 3;
 
 let clients = []; // the place we save the fetched list of clients
 let initialClientsArray = []; // we save here the initial order, so we can revert the table later
-initiateTableHeads();
+let initialFilteredClientsArray = []; // as above, except that we use this when the SEARCH features is used
+let filteredContent = false; // gonna use it when restoring a filtered list, after SEARCH was used
+
+let parentClassList, classList, filter, val;
+
+//-------------
+/* load list */
+
+resetTableHeads();
 getClients(); // + renderTable(res);
 
 //---------------------------------------------
 
 table.addEventListener( "click", (e) => {
-    const classList = e.target.parentElement.classList;
+    parentClassList = e.target.parentElement.classList;
+    classList = e.target.classList;
     
-    if (classList.contains( "main__clients-table-th")) 
+    if (classList.contains( "main_clients-table-th")) 
     {
-        let filter = e.path[1].cellIndex;
+        console.log(e);
+    }
+    else if (parentClassList.contains( "main__clients-table-th")) 
+    {
+        filter = e.path[1].cellIndex;
         if (filter < 4) applyFilter( filter );
     }
-    else if ( classList.contains( "arrows" ) || classList.contains( "arrows-up" ) || classList.contains( "arrows-down" ) || classList.contains( "arrows-up--on") || classList.contains( "arrows-down--on")) 
+    else if ( parentClassList.contains( "arrows" ) || parentClassList.contains( "arrows-up" ) || parentClassList.contains( "arrows-down" ) || parentClassList.contains( "arrows-up--on") || parentClassList.contains( "arrows-down--on")) 
     {
-        let filter = e.path[3].cellIndex;
+        filter = e.path[3].cellIndex;
         if (filter < 4) applyFilter( filter );
     }
 })
 
-function applyFilter( filter ) {
+filterElem.addEventListener( "change", (e) => {
+    val = filterElem.value;
+    if (val != "none") {
+        var order = val[val.length-1]; // we save the order way (1/2) and remove it from the string
+        val = val.slice(0,-1);
+    }
+
+    switch (val) {
+        case "none": {
+            // doesn't matter which filter I choose; imrpotant is to get all filters off - by bringing anyone to STS_NONE
+            applyFilter( FILTER_NAME, STS_NONE ); 
+        } break;
+
+        default: {
+            applyFilter( getFilterIDFromName(val), parseInt(order) );
+        } break;
+    }
+});
+
+searchElem.addEventListener( "keydown", (e) => {
+    if (e.key === "Enter") {
+        search( searchElem.value );
+    }
+});
+
+searchBtnElem.addEventListener( "click", (e) => {
+    search( searchElem.value );
+});
+
+//---------------------------------------------
+/* search */
+
+function search( str ) {
+    if (str) {
+        str = str.toLowerCase();
+
+        let res = [];
+        let name, visits, firstVisit, age;
+        initialClientsArray.forEach( (item, idx) => {
+            name = item.name.toLowerCase();
+            visits = item.visits.toString();
+            firstVisit = item.firstVisit.toString();
+            age = item.age.toString();
+
+            if (name.search(str) != -1 || visits.search(str) != -1 || firstVisit.search(str) != -1 || age.search(str) != -1) 
+                return res.push(item);
+        });
+
+        // rewritting the clients, so we can filter the new list of clients
+        clients = res;
+        if (clients.length) {
+            // saving this new list order so we can use it when back to no filters
+            clients.forEach( item => initialFilteredClientsArray.push(item));
+        } else {
+            initialFilteredClientsArray = [];
+        }
+
+        filteredContent = true;
+    } else if (!str && filteredContent == true) {
+        // if the search input was emptied, after it was used before, we can restore everything like it used to be
+        clients = [];
+        initialClientsArray.forEach( item => clients.push(item) );
+        filteredContent = false;
+    }
+
+    filterElem.value = "none";
+    resetTableHeads(); // we must clean the used arrows (filters)
+    renderTable( clients );
+}
+
+//---------------------------------------------
+/* filters */
+
+function applyFilter( filter, newStatus = null ) {
     // must clean all filters first (icons, array)
-    initiateTableHeads();
+    resetTableHeads();
     for (let i = 0; i < filterStatus.length; i++) if (i != filter) filterStatus[i] = STS_NONE;
     // ---
 
-    switch (filter) {
-        case FILTER_NAME: {
-            updateFilterStatus( filter, "name" );
-        } break;
-
-        case FILTER_VISITS: {
-            updateFilterStatus( filter, "visits" );
-        } break;
-
-        case FILTER_FIRST_VISIT: {
-            updateFilterStatus( filter, "firstVisit" );
-        } break;
-
-        case FILTER_AGE: {
-            updateFilterStatus( filter, "age" );
-        } break;
-    }
+    if (newStatus == null) updateFilterStatus( filter );
+    else setFilterStatus( filter, newStatus )
 
     renderTable( clients );
 }
 
-function updateFilterStatus( filter, property ) {
-    const sts = filterStatus[filter];
-
+function setFilterStatus( filter, newStatus ) {
     const arrUP = document.querySelector( `#arrows-${filter} i:first-child` );
     const arrDOWN = document.querySelector( `#arrows-${filter} i:last-child` );
-    switch (sts) {
-        case STS_NONE: {
+    const property = getFilterNameFromID( filter );
+
+    switch (newStatus) {
+        case STS_UP: {
             arrUP.classList.add("arrows-up--on");
             filterStatus[filter] = STS_UP;
             clients.sort((a, b) => {
-                if ( typeof a[property] == "string")
-                    return a[property].localeCompare(b[property]);
-                else
-                    return a[property] - b[property];
+                if (property == "firstVisit") {
+                    const itemDateA = new Date(a.firstVisit.split('/').reverse());
+                    const itemDateB = new Date(b.firstVisit.split('/').reverse());
+                    return new Date(itemDateA) - new Date(itemDateB);
+                } else {
+                    if ( typeof a[property] == "string")
+                        return a[property].localeCompare(b[property]);
+                    else
+                        return a[property] - b[property];
+                }
             });
         } break;
 
-        case STS_UP: {
+        case STS_DOWN: {
             arrDOWN.classList.add("arrows-down--on");
+            if (filterStatus[filter] != STS_UP) setFilterStatus( filter, STS_UP ); // we make sure it's ASC, before doing .reverse()
             filterStatus[filter] = STS_DOWN;
-            clients.reverse(); // the flow is STS_NONE -> STS_UP -> STS_DOWN, so in this moment we have them in ASCENDENT order, so we can reverse.
+            clients.reverse();
         } break;
         
-        case STS_DOWN: {
+        case STS_NONE: {
             filterStatus[filter] = STS_NONE;
-            clients = initialClientsArray;
+            clients = [];
+            if (filteredContent) initialFilteredClientsArray.forEach( item => clients.push( item ) );
+            else initialClientsArray.forEach( item => clients.push( item ) );
         } break;
     }
 }
+
+function updateFilterStatus( filter ) {
+    nextStatus = filterStatus[filter]+1;
+    if (nextStatus > STS_DOWN) nextStatus = STS_NONE;
+    setFilterStatus( filter, nextStatus );
+}
+
+//---------------------------------------------
+/* table */
 
 function renderTable( arr ) {
     let newBody = "";
     arr.forEach( (client, id) => {
         newBody += `<tr>
-                    <td>${client.name}</td>
-                    <td>${client.visits}</td>
-                    <td>${client.firstVisit}</td>
-                    <td>${client.age}</td>
+                    <td data-label="CLIENT NAME">${client.name}</td>
+                    <td data-label="VISITS">${client.visits}</td>
+                    <td data-label="FIRST VISIT">${client.firstVisit}</td>
+                    <td data-label="AGE">${client.age}</td>
                     <td><a href="#" id="view-${id}">View profile</a></td>
                 </tr>`;
     });
     tbody.innerHTML = newBody;
 }
 
-function initiateTableHeads() {
+function resetTableHeads() {
     thead.innerHTML = `
             <tr>
             <th class="main__clients-table-th">
@@ -158,4 +250,29 @@ async function getClients() {
 
     res.forEach( item => { clients.push(item); initialClientsArray.push(item); });
     renderTable( res );
+}
+
+//---------------------------------------------
+/* utils */
+
+function getFilterIDFromName( name ) {
+    let id;
+    switch (name) {
+        case "name": { id = FILTER_NAME; } break;
+        case "visits": { id = FILTER_VISITS; } break;
+        case "firstVisit": { id = FILTER_FIRST_VISIT; } break;
+        case "age": { id = FILTER_AGE; } break;
+    }
+    return id;
+}
+
+function getFilterNameFromID( id ) {
+    let propName;
+    switch (id) {
+        case FILTER_NAME: { propName = "name"; } break;
+        case FILTER_VISITS: { propName = "visits"; } break;
+        case FILTER_FIRST_VISIT: { propName = "firstVisit"; } break;
+        case FILTER_AGE: { propName = "age"; } break;
+    }
+    return propName;
 }

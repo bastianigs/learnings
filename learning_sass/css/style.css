@@ -378,23 +378,7 @@ body {
 
 .main--block {
   position: static;
-  display: block;
-  padding: 60px 108px; }
-  @media only screen and (max-width: 1280px) {
-    .main--block td {
-      font-size: 14px; } }
-  @media only screen and (max-width: 1200px) {
-    .main--block {
-      padding: 0 54px; } }
-  @media only screen and (max-width: 768px) {
-    .main--block {
-      padding: 0 27px; } }
-  @media only screen and (max-width: 390px) {
-    .main--block {
-      padding: 0; } }
-  @media only screen and (max-width: xspx) {
-    .main--block {
-      padding: 0; } }
+  display: block; }
 
 .main__clients {
   font-family: "Montserrat";
@@ -407,6 +391,18 @@ body {
     font-size: 16px;
     line-height: 20px;
     padding: 16px; }
+    .main__clients-header #search,
+    .main__clients-header #searchBtn,
+    .main__clients-header #filter {
+      color: #525F7F;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 20px;
+      padding: 5px; }
+    .main__clients-header #filter {
+      margin-left: 5px; }
+    .main__clients-header-filter {
+      display: none; }
   .main__clients-table {
     width: 100%;
     color: #525F7F;
@@ -444,6 +440,29 @@ body {
       .main__clients-table a:hover {
         color: black; }
   @media only screen and (max-width: 576px) {
-    .main__clients th,
-    .main__clients td {
-      font-size: 10px; } }
+    .main__clients .main__clients-header-filter {
+      display: block; }
+    .main__clients-table thead {
+      display: none; }
+    .main__clients-table table, .main__clients-table tbody, .main__clients-table tr, .main__clients-table td {
+      display: block;
+      width: 100%; }
+    .main__clients-table tr {
+      margin-bottom: 15px;
+      border-radius: 6px;
+      box-shadow: 0px 4px 32px rgba(136, 152, 170, 0.16); }
+    .main__clients-table td {
+      text-align: right;
+      padding-left: 50%;
+      position: relative; }
+    .main__clients-table td::before {
+      content: attr(data-label);
+      position: absolute;
+      left: 0;
+      width: 50%;
+      text-align: left;
+      padding: 3px 0 0 15px;
+      color: #8898AA;
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 12px; } }

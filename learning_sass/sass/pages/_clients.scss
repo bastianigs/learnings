@@ -38,25 +38,6 @@
     &--block {
         position: static;
         display: block;
-        padding: 60px $padding-width;
-
-        @include media-breakpoint-down(1280) {
-            td {
-                font-size: 14px;
-            }
-        }
-    
-        @include media-breakpoint-down(x) {
-            padding: 0 ($padding-width / 2);
-        }
-    
-        @include media-breakpoint-down(md) {
-            padding: 0 ($padding-width / 4);
-        }
-
-        @include media-breakpoint-down(xs) {
-            padding: 0;
-        }
     }
 
     &__clients {
@@ -71,6 +52,24 @@
             font-size: 16px;
             line-height: 20px;
             padding: $s-dist;
+
+            #search,
+            #searchBtn,
+            #filter {
+                color: $text;
+                font-weight: 700;
+                font-size: 16px;
+                line-height: 20px;
+                padding: 5px;
+            }
+
+            #filter {
+                margin-left: 5px;
+            }
+
+            &-filter {
+                display: none;
+            }
         }
 
         &-table {
@@ -130,9 +129,45 @@
         }
 
         @include media-breakpoint-down(sm) {
-            th,
-            td {
-                font-size: 10px;
+            .main__clients-header-filter {
+                display: block;
+            }
+            
+            &-table {
+                thead { 
+                    display: none;
+                }
+
+                table, tbody, tr, td  {
+                    display: block;
+                    width: 100%;
+                }
+
+                tr {
+                    margin-bottom: 15px;
+                    border-radius: 6px;
+                    box-shadow: 0px 4px 32px rgba(136, 152, 170, 0.16);
+                }
+
+                td {
+                    text-align: right;
+                    padding-left: 50%;
+                    position: relative;
+                }
+
+                td::before {
+                    content: attr(data-label);
+                    position: absolute;
+                    left: 0;
+                    width: 50%;
+                    text-align: left;
+                    padding: 3px 0 0 15px;
+
+                    color: $table-th;
+                    font-weight: 500;
+                    font-size: 12px;
+                    line-height: 12px;
+                }
             }
         }
     }
