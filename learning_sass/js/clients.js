@@ -37,11 +37,11 @@ table.addEventListener( "click", (e) => {
     parentClassList = e.target.parentElement.classList;
     classList = e.target.classList;
     
-    if (classList.contains( "main_clients-table-th")) 
+    if (classList.contains( "clients-page__clients-table-th")) 
     {
         console.log(e);
     }
-    else if (parentClassList.contains( "main__clients-table-th")) 
+    else if (parentClassList.contains( "clients-page__clients-table-th")) 
     {
         filter = e.path[1].cellIndex;
         if (filter < 4) applyFilter( filter );
@@ -203,7 +203,7 @@ function renderTable( arr ) {
 function resetTableHeads() {
     thead.innerHTML = `
             <tr>
-            <th class="main__clients-table-th">
+            <th class="clients-page__clients-table-th">
                 <div>
                     CLIENT NAME
                     <span id="arrows-0" class="arrows">
@@ -212,7 +212,7 @@ function resetTableHeads() {
                     </span>
                 </div>
             </th>
-            <th class="main__clients-table-th">
+            <th class="clients-page__clients-table-th">
                 <div>
                     VISITS
                     <span id="arrows-1" class="arrows">
@@ -221,7 +221,7 @@ function resetTableHeads() {
                     </span>
                 </div>
             </th>
-            <th class="main__clients-table-th">
+            <th class="clients-page__clients-table-th">
                 <div>
                     FIRST VISIT
                     <span id="arrows-2" class="arrows">
@@ -230,7 +230,7 @@ function resetTableHeads() {
                     </span>
                 </div>
             </th>
-            <th class="main__clients-table-th">
+            <th class="clients-page__clients-table-th">
                 <div>
                     AGE
                     <span id="arrows-3" class="arrows">

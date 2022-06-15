@@ -33,19 +33,13 @@
     }
 }
 
-.main {
-
-    &--block {
-        position: static;
-        display: block;
-    }
-
+.clients-page {
     &__clients {
         font-family: "Montserrat";
         background-color: $accent;
         border-radius: 6px;
         box-shadow: 0px 4px 32px rgba(136, 152, 170, 0.16);
-
+        
         &-header {
             color: $text;
             font-weight: 700;
@@ -127,9 +121,11 @@
                 }
             }
         }
+    }
 
-        @include media-breakpoint-down(sm) {
-            .main__clients-header-filter {
+    @include media-breakpoint-down(sm) {
+        &__clients {
+            &-header-filter {
                 display: block;
             }
             

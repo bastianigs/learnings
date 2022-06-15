@@ -1,13 +1,15 @@
 /* breakpoints are at the end of every major div/block */
 
-.main {
-    position: relative;
-    top: -50px;
-    display: grid;
-    grid-template-columns: repeat(12,1fr);
-    column-gap: 24px;
-    row-gap: 24px;
-    padding: 0 $padding-width;
+.home-page {
+    .container {
+        position: relative;
+        top: -50px;
+        // display: grid;
+        // grid-template-columns: repeat(12,1fr);
+        // column-gap: 24px;
+        // row-gap: 24px;
+        padding: 0 $padding-width;
+    }
 
     &__card {
         height: 100px;
@@ -222,41 +224,41 @@
         grid-column: 1 / 9;
     }
 
-    @include media-breakpoint-down(1280) {
-        ul,
-        &__next p,
-        &__next a {
-            font-size: 14px;
-        }
-    }
-
-    @include media-breakpoint-down(x) {
-        grid-template-columns: repeat(8,1fr);
-        padding: 0 ($padding-width / 2);
-
-        &__next {
-            grid-column: 1 / 5;
+        @include media-breakpoint-down(1280) {
+            ul,
+            &__next p,
+            &__next a {
+                font-size: 14px;
+            }
         }
 
-        &__appointments {
-            grid-column: 5 / 9;
-        }
-    }
+        @include media-breakpoint-down(x) {
+            // grid-template-columns: repeat(8,1fr);
+            // padding: 0 ($padding-width / 2);
 
-    @include media-breakpoint-down(md) {
-        grid-template-columns: repeat(4,1fr);
-        padding: 0 ($padding-width / 4);
+            &__next {
+                grid-column: 1 / 5;
+            }
 
-        &__card:nth-child(2) {
-            grid-column: 1 / 5;
-        }
-
-        &__appointments {
-            grid-column: 1  / 5;
+            &__appointments {
+                grid-column: 5 / 9;
+            }
         }
 
-        &__calendar {
-            grid-column: 1 / 5;
+        @include media-breakpoint-down(md) {
+            // grid-template-columns: repeat(4,1fr);
+            // padding: 0 ($padding-width / 4);
+
+            &__card:nth-child(2) {
+                grid-column: 1 / 5;
+            }
+
+            &__appointments {
+                grid-column: 1  / 5;
+            }
+
+            &__calendar {
+                grid-column: 1 / 5;
+            }
         }
-    }
 }

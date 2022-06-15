@@ -20,7 +20,7 @@ body {
 // @use "components/terms-modal";
 // @use "components/back-to-top";
 
-// @use "layout/grid";
+@import "layout/grid";
 @import "layout/navbar";
 // @use "layout/footer";
 @import "layout/header";

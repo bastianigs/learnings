@@ -12,84 +12,86 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <div class="navbar">
-        <div class="navbar__logo">
-            <img class="navbar__logo-img" src="./assets/icons/logo.svg" alt="logo">
-            <a class="navbar__logo-title" href="./index.html">Fenix Admin</a>
-        </div>
-        <ul class="navbar__menu">
-            <li><a href="#"><img class="navbar__menu-notifications" src="./assets/icons/bell.svg" alt="bell"></a></li>
-            <li><a href="#">Appointments</a></li>
-            <li><a href="#">Payments</a></li>
-            <li><a href="./clients.html">Clients</a></li>
-        </ul>
-    </div>
-
-    <div class="header">
-        <div class="header__img"></div>
-        <div class="header__info">
-            <div class="header__info-back">
-                <i class="header__info-back-arrow"></i>
-                <a class="header__info-back-where" href="#">Clients</a>
+    <div class="home-page">
+        <div class="navbar">
+            <div class="navbar__logo">
+                <img class="navbar__logo-img" src="./assets/icons/logo.svg" alt="logo">
+                <a class="navbar__logo-title" href="./index.html">Fenix Admin</a>
             </div>
-            <h1 class="header__info-name">Hello <span>Naila</span>,</h1>
-            <p class="header__info-desc">This is your overview page. You can see your agenda, client profiles and payments.</p>
-            <a class="header__info-btn" href="#">New appointment</a>
-        </div>
-    </div>
-
-    <div class="main">
-        <div class="main__card">
-            <div>
-                <p class="main__card-key"></p>
-                <p class="main__card-value"></p>
-            </div>
-            <img class="main__card-img" alt="card1">
-        </div>
-
-        <div class="main__card">
-            <div>
-                <p class="main__card-key"></p>
-                <p class="main__card-value"></p>
-            </div>
-            <img class="main__card-img" alt="card2">
-        </div>
-
-        <div class="main__next">
-            <div class="main__next-header">
-                Volgende Klant
-                <span></span>
-            </div>
-            <hr>
-            <div class="main__next-client">
-                <p class="main__next-client-name"></p>
-                <p class="main__next-client-visits"><span></span> Visites</p>
-                <div class="main__next-client-tel">
-                    <img src="./assets/icons/phone.svg" alt="phone"> <p></p>
-                </div>
-                <a class="main__next-client-view" href="#">View profile</a> 
-            </div>
-            <div class="main__next-services">
-                <p></p>
-                <ul>
-                </ul>
-                <div class="main__next-services-paid">
-                    <div><img src="./assets/icons/check.svg" alt="check"></div>
-                    <p>Betaald</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="main__appointments">
-            <div class="main__appointments-header">
-                New appointments
-            </div>
-            <hr>
-            <ul>
+            <ul class="navbar__menu">
+                <li><a href="#"><img class="navbar__menu-notifications" src="./assets/icons/bell.svg" alt="bell"></a></li>
+                <li><a href="#">Appointments</a></li>
+                <li><a href="#">Payments</a></li>
+                <li><a href="./clients.html">Clients</a></li>
             </ul>
         </div>
 
-        <div class="main__calendar">
+        <div class="header">
+            <div class="header__img"></div>
+            <div class="header__info">
+                <div class="header__info-back">
+                    <i class="header__info-back-arrow"></i>
+                    <a class="header__info-back-where" href="#">Clients</a>
+                </div>
+                <h1 class="header__info-name">Hello <span>Naila</span>,</h1>
+                <p class="header__info-desc">This is your overview page. You can see your agenda, client profiles and payments.</p>
+                <a class="header__info-btn" href="#">New appointment</a>
+            </div>
+        </div>
+
+        <div class="container container--grid">
+            <div class="home-page__card">
+                <div>
+                    <p class="home-page__card-key"></p>
+                    <p class="home-page__card-value"></p>
+                </div>
+                <img class="home-page__card-img" alt="card1">
+            </div>
+
+            <div class="home-page__card">
+                <div>
+                    <p class="home-page__card-key"></p>
+                    <p class="home-page__card-value"></p>
+                </div>
+                <img class="home-page__card-img" alt="card2">
+            </div>
+
+            <div class="home-page__next">
+                <div class="home-page__next-header">
+                    Volgende Klant
+                    <span></span>
+                </div>
+                <hr>
+                <div class="home-page__next-client">
+                    <p class="home-page__next-client-name"></p>
+                    <p class="home-page__next-client-visits"><span></span> Visites</p>
+                    <div class="home-page__next-client-tel">
+                        <img src="./assets/icons/phone.svg" alt="phone"> <p></p>
+                    </div>
+                    <a class="home-page__next-client-view" href="#">View profile</a> 
+                </div>
+                <div class="home-page__next-services">
+                    <p></p>
+                    <ul>
+                    </ul>
+                    <div class="home-page__next-services-paid">
+                        <div><img src="./assets/icons/check.svg" alt="check"></div>
+                        <p>Betaald</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="home-page__appointments">
+                <div class="home-page__appointments-header">
+                    New appointments
+                </div>
+                <hr>
+                <ul>
+                </ul>
+            </div>
+
+            <div class="home-page__calendar">
+            </div>
         </div>
     </div>
 

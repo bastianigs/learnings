@@ -6,6 +6,88 @@
 body {
   box-sizing: border-box; }
 
+.container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: 24px;
+  row-gap: 24px;
+  padding: 0 108px;
+  /*
+    &--oldone--notused {
+        // this is the old .container from _grid.scss
+        // left it here as you may need it, idk
+        max-width: $max-width-fhd;
+        padding: 0 22px;
+        margin: 0 auto;
+        width: 100%;
+
+        @include media-breakpoint-up(lg) {
+            max-width: calc(1720px + 100px);
+            padding: 0 50px;
+        }
+
+        @include media-breakpoint-up(x) {
+            max-width: calc(1720px + 200px);
+            padding: 0 100px;
+        }
+
+        @include media-breakpoint-up(fhd) {
+            max-width: calc(2300px + 300px);
+            padding: 0 150px;
+        }
+
+        @include media-breakpoint-up(tk) {
+            max-width: calc(3440px + 400px);
+            padding: 0 200px;
+        }
+    }
+    */ }
+  @media only screen and (max-width: 1200px) {
+    .container {
+      grid-template-columns: repeat(8, 1fr);
+      padding: 0 54px; } }
+  @media only screen and (max-width: 768px) {
+    .container {
+      grid-template-columns: repeat(4, 1fr);
+      padding: 0 27px; } }
+  .container--block {
+    display: block;
+    position: static; }
+
+/*
+.homepage-margin-left {
+    margin-left: 30px;
+
+    @include media-breakpoint-up(sm) {
+        margin-left: 60px;
+    }
+
+    @include media-breakpoint-up(lg) {
+        margin-left: 100px;
+    }
+
+    @include media-breakpoint-up(xl) {
+        margin-left: 160px;
+    }
+
+    @include media-breakpoint-up(xi) {
+        margin-left: 260px;
+    }
+
+    @include media-breakpoint-up(fhd) {
+        margin-left: 390px;
+    }
+
+    @include media-breakpoint-up(tk) {
+        margin-left: 260px;
+    }
+
+    @include media-breakpoint-up(ik) {
+        margin-left: 520px
+    }
+}
+
+*/
 .navbar {
   background-color: #172B4D;
   color: #fdfdfd;
@@ -213,183 +295,180 @@ body {
       margin-bottom: 12px; } }
 
 /* breakpoints are at the end of every major div/block */
-.main {
+.home-page .container {
   position: relative;
   top: -50px;
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  column-gap: 24px;
-  row-gap: 24px;
   padding: 0 108px; }
-  .main__card {
-    height: 100px;
+
+.home-page__card {
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  font-family: "Montserrat";
+  color: #fdfdfd;
+  padding: 24px;
+  background: linear-gradient(90deg, #E0B677 0%, #0C1D33 100%);
+  border-radius: 6px; }
+  .home-page__card:nth-child(1) {
+    grid-column: 1 / 5; }
+  .home-page__card:nth-child(2) {
+    grid-column: 5 / 9; }
+  .home-page__card-key {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    margin-bottom: 8px; }
+  .home-page__card-value {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px; }
+  .home-page__card-img {
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border-radius: 100%;
+    border: 1px solid #fdfdfd;
+    object-fit: fill; }
+
+.home-page__next {
+  position: relative;
+  grid-column: 9 / 13;
+  height: 300px;
+  background-color: #fdfdfd;
+  border-radius: 6px;
+  box-shadow: 0px 4px 32px rgba(136, 152, 170, 0.16);
+  font-family: "Montserrat";
+  font-size: 16px; }
+  .home-page__next-header {
+    color: #525F7F;
+    padding: 16px;
+    font-weight: 700;
+    line-height: 20px;
+    text-align: left;
+    display: flex;
+    justify-content: space-between; }
+  .home-page__next hr {
+    border-width: 2px;
+    border: 1px solid #E9ECEF; }
+  .home-page__next-client {
+    border: 2px solid #E9ECEF;
+    border-radius: 6px;
+    margin: 16px;
+    padding: 16px;
+    height: 125px;
+    font-weight: 300;
+    line-height: 20px;
+    color: #32325D; }
+    .home-page__next-client-name {
+      color: #525F7F;
+      font-weight: 400; }
+    .home-page__next-client-visits {
+      margin: 16px 0; }
+    .home-page__next-client-tel {
+      display: flex;
+      align-items: center; }
+      .home-page__next-client-tel span {
+        border: 2px solid grey; }
+    .home-page__next-client-view {
+      position: absolute;
+      right: 32px;
+      top: 160px; }
+  .home-page__next-services {
+    max-width: 100%;
+    color: #525F7F;
+    padding: 0 16px;
+    padding-bottom: 16px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px; }
+    .home-page__next-services p:first-child {
+      padding-bottom: 6px; }
+    .home-page__next-services ul {
+      list-style-position: inside;
+      padding-left: 16px;
+      color: #32325D; }
+    .home-page__next-services li {
+      color: #32325D;
+      font-weight: 400;
+      padding-bottom: 6px; }
+    .home-page__next-services-paid {
+      position: absolute;
+      right: 16px;
+      top: 202px;
+      height: 40px;
+      display: flex;
+      color: #00BB78;
+      align-items: center; }
+      .home-page__next-services-paid div {
+        height: 20px;
+        background-color: #00BB78;
+        border-radius: 100%;
+        margin-right: 5px; }
+        .home-page__next-services-paid div img {
+          height: 20px; }
+      .home-page__next-services-paid--not {
+        color: red; }
+
+.home-page__appointments {
+  grid-column: 9 / 13;
+  font-family: "Montserrat";
+  background-color: #fdfdfd;
+  border-radius: 6px;
+  box-shadow: 0px 4px 32px rgba(136, 152, 170, 0.16);
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 400; }
+  .home-page__appointments-header {
+    color: #525F7F;
+    font-weight: 700;
+    padding: 16px; }
+  .home-page__appointments hr {
+    border: 1px solid #E9ECEF; }
+  .home-page__appointments ul {
+    padding: 16px;
+    padding-top: 0; }
+  .home-page__appointments li {
     display: flex;
     justify-content: space-between;
-    font-family: "Montserrat";
-    color: #fdfdfd;
-    padding: 24px;
-    background: linear-gradient(90deg, #E0B677 0%, #0C1D33 100%);
-    border-radius: 6px; }
-    .main__card:nth-child(1) {
-      grid-column: 1 / 5; }
-    .main__card:nth-child(2) {
-      grid-column: 5 / 9; }
-    .main__card-key {
-      font-weight: 700;
-      font-size: 14px;
-      line-height: 17px;
-      margin-bottom: 8px; }
-    .main__card-value {
-      font-weight: 700;
-      font-size: 20px;
-      line-height: 24px; }
-    .main__card-img {
-      width: 50px;
-      height: 50px;
-      background-color: white;
-      border-radius: 100%;
-      border: 1px solid #fdfdfd;
-      object-fit: fill; }
-  .main__next {
-    position: relative;
-    grid-column: 9 / 13;
-    height: 300px;
-    background-color: #fdfdfd;
-    border-radius: 6px;
-    box-shadow: 0px 4px 32px rgba(136, 152, 170, 0.16);
-    font-family: "Montserrat";
-    font-size: 16px; }
-    .main__next-header {
-      color: #525F7F;
-      padding: 16px;
-      font-weight: 700;
-      line-height: 20px;
-      text-align: left;
-      display: flex;
-      justify-content: space-between; }
-    .main__next hr {
-      border-width: 2px;
-      border: 1px solid #E9ECEF; }
-    .main__next-client {
-      border: 2px solid #E9ECEF;
-      border-radius: 6px;
-      margin: 16px;
-      padding: 16px;
-      height: 125px;
-      font-weight: 300;
-      line-height: 20px;
-      color: #32325D; }
-      .main__next-client-name {
-        color: #525F7F;
-        font-weight: 400; }
-      .main__next-client-visits {
-        margin: 16px 0; }
-      .main__next-client-tel {
-        display: flex;
-        align-items: center; }
-        .main__next-client-tel span {
-          border: 2px solid grey; }
-      .main__next-client-view {
-        position: absolute;
-        right: 32px;
-        top: 160px; }
-    .main__next-services {
-      max-width: 100%;
-      color: #525F7F;
-      padding: 0 16px;
-      padding-bottom: 16px;
-      font-weight: 500;
-      font-size: 16px;
-      line-height: 20px; }
-      .main__next-services p:first-child {
-        padding-bottom: 6px; }
-      .main__next-services ul {
-        list-style-position: inside;
-        padding-left: 16px;
-        color: #32325D; }
-      .main__next-services li {
-        color: #32325D;
-        font-weight: 400;
-        padding-bottom: 6px; }
-      .main__next-services-paid {
-        position: absolute;
-        right: 16px;
-        top: 202px;
-        height: 40px;
-        display: flex;
-        color: #00BB78;
-        align-items: center; }
-        .main__next-services-paid div {
-          height: 20px;
-          background-color: #00BB78;
-          border-radius: 100%;
-          margin-right: 5px; }
-          .main__next-services-paid div img {
-            height: 20px; }
-        .main__next-services-paid--not {
-          color: red; }
-  .main__appointments {
-    grid-column: 9 / 13;
-    font-family: "Montserrat";
-    background-color: #fdfdfd;
-    border-radius: 6px;
-    box-shadow: 0px 4px 32px rgba(136, 152, 170, 0.16);
-    font-size: 16px;
-    line-height: 20px;
+    align-items: center;
+    padding: 8px 16px;
     font-weight: 400; }
-    .main__appointments-header {
-      color: #525F7F;
-      font-weight: 700;
-      padding: 16px; }
-    .main__appointments hr {
-      border: 1px solid #E9ECEF; }
-    .main__appointments ul {
-      padding: 16px;
-      padding-top: 0; }
-    .main__appointments li {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    .home-page__appointments li a {
+      background-color: #0C1D33;
       padding: 8px 16px;
-      font-weight: 400; }
-      .main__appointments li a {
-        background-color: #0C1D33;
-        padding: 8px 16px;
-        margin-left: 5px;
-        text-decoration: none;
-        color: #fdfdfd;
-        box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.08), 0px 4px 6px rgba(50, 50, 93, 0.1);
-        border-radius: 6px; }
-        .main__appointments li a:hover {
-          cursor: pointer;
-          background-color: #32325D; }
-      .main__appointments li p {
-        margin: 4px 0; }
-  .main__calendar {
-    grid-column: 1 / 9; }
-  @media only screen and (max-width: 1280px) {
-    .main ul,
-    .main__next p,
-    .main__next a {
-      font-size: 14px; } }
-  @media only screen and (max-width: 1200px) {
-    .main {
-      grid-template-columns: repeat(8, 1fr);
-      padding: 0 54px; }
-      .main__next {
-        grid-column: 1 / 5; }
-      .main__appointments {
-        grid-column: 5 / 9; } }
-  @media only screen and (max-width: 768px) {
-    .main {
-      grid-template-columns: repeat(4, 1fr);
-      padding: 0 27px; }
-      .main__card:nth-child(2) {
-        grid-column: 1 / 5; }
-      .main__appointments {
-        grid-column: 1  / 5; }
-      .main__calendar {
-        grid-column: 1 / 5; } }
+      margin-left: 5px;
+      text-decoration: none;
+      color: #fdfdfd;
+      box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.08), 0px 4px 6px rgba(50, 50, 93, 0.1);
+      border-radius: 6px; }
+      .home-page__appointments li a:hover {
+        cursor: pointer;
+        background-color: #32325D; }
+    .home-page__appointments li p {
+      margin: 4px 0; }
+
+.home-page__calendar {
+  grid-column: 1 / 9; }
+
+@media only screen and (max-width: 1280px) {
+  .home-page ul,
+  .home-page__next p,
+  .home-page__next a {
+    font-size: 14px; } }
+
+@media only screen and (max-width: 1200px) {
+  .home-page__next {
+    grid-column: 1 / 5; }
+  .home-page__appointments {
+    grid-column: 5 / 9; } }
+
+@media only screen and (max-width: 768px) {
+  .home-page__card:nth-child(2) {
+    grid-column: 1 / 5; }
+  .home-page__appointments {
+    grid-column: 1  / 5; }
+  .home-page__calendar {
+    grid-column: 1 / 5; } }
 
 .arrows {
   display: flex;
@@ -415,93 +494,90 @@ body {
     .arrows-down--on {
       border-color: #525F7F; }
 
-.main--block {
-  position: static;
-  display: block; }
-
-.main__clients {
+.clients-page__clients {
   font-family: "Montserrat";
   background-color: #fdfdfd;
   border-radius: 6px;
   box-shadow: 0px 4px 32px rgba(136, 152, 170, 0.16); }
-  .main__clients-header {
+  .clients-page__clients-header {
     color: #525F7F;
     font-weight: 700;
     font-size: 16px;
     line-height: 20px;
     padding: 16px; }
-    .main__clients-header #search,
-    .main__clients-header #searchBtn,
-    .main__clients-header #filter {
+    .clients-page__clients-header #search,
+    .clients-page__clients-header #searchBtn,
+    .clients-page__clients-header #filter {
       color: #525F7F;
       font-weight: 700;
       font-size: 16px;
       line-height: 20px;
       padding: 5px; }
-    .main__clients-header #filter {
+    .clients-page__clients-header #filter {
       margin-left: 5px; }
-    .main__clients-header-filter {
+    .clients-page__clients-header-filter {
       display: none; }
-  .main__clients-table {
+  .clients-page__clients-table {
     width: 100%;
     color: #525F7F;
     border-spacing: 0;
     border-collapse: collapse; }
-    .main__clients-table tr {
+    .clients-page__clients-table tr {
       border: 1px solid #E9ECEF;
       border-left: 0;
       border-right: 0; }
-    .main__clients-table thead {
+    .clients-page__clients-table thead {
       height: 44px;
       color: #8898AA;
       background-color: #F6F9FC;
       font-weight: 500;
       font-size: 12px;
       line-height: 12px; }
-      .main__clients-table thead th {
+      .clients-page__clients-table thead th {
         padding: 16px;
         text-align: left; }
-        .main__clients-table thead th div {
+        .clients-page__clients-table thead th div {
           display: flex;
           align-items: center; }
-          .main__clients-table thead th div .arrows {
+          .clients-page__clients-table thead th div .arrows {
             margin-left: 10px; }
-        .main__clients-table thead th:hover {
+        .clients-page__clients-table thead th:hover {
           cursor: pointer;
           background-color: #E9ECEF; }
-    .main__clients-table td {
+    .clients-page__clients-table td {
       font-weight: 500;
       font-size: 16px;
       line-height: 20px;
       padding: 16px; }
-    .main__clients-table a {
+    .clients-page__clients-table a {
       color: #525F7F; }
-      .main__clients-table a:hover {
+      .clients-page__clients-table a:hover {
         color: black; }
-  @media only screen and (max-width: 576px) {
-    .main__clients .main__clients-header-filter {
-      display: block; }
-    .main__clients-table thead {
-      display: none; }
-    .main__clients-table table, .main__clients-table tbody, .main__clients-table tr, .main__clients-table td {
-      display: block;
-      width: 100%; }
-    .main__clients-table tr {
-      margin-bottom: 15px;
-      border-radius: 6px;
-      box-shadow: 0px 4px 32px rgba(136, 152, 170, 0.16); }
-    .main__clients-table td {
-      text-align: right;
-      padding-left: 50%;
-      position: relative; }
-    .main__clients-table td::before {
-      content: attr(data-label);
-      position: absolute;
-      left: 0;
-      width: 50%;
-      text-align: left;
-      padding: 3px 0 0 15px;
-      color: #8898AA;
-      font-weight: 500;
-      font-size: 12px;
-      line-height: 12px; } }
+
+@media only screen and (max-width: 576px) {
+  .clients-page__clients-header-filter {
+    display: block; }
+  .clients-page__clients-table thead {
+    display: none; }
+  .clients-page__clients-table table, .clients-page__clients-table tbody, .clients-page__clients-table tr, .clients-page__clients-table td {
+    display: block;
+    width: 100%; }
+  .clients-page__clients-table tr {
+    margin-bottom: 15px;
+    border-radius: 6px;
+    box-shadow: 0px 4px 32px rgba(136, 152, 170, 0.16); }
+  .clients-page__clients-table td {
+    text-align: right;
+    padding-left: 50%;
+    position: relative; }
+  .clients-page__clients-table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 50%;
+    text-align: left;
+    padding: 3px 0 0 15px;
+    color: #8898AA;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 12px; } }
