@@ -94,52 +94,67 @@ body {
           margin-bottom: 15px; } }
 
 .header {
+  z-index: -2;
+  position: relative;
   height: 415px;
   background-color: #0C1D33;
-  /* guess we better just use a background image, instead of loading a big svg to put 1/4 of it in the view */
   color: #fdfdfd;
   font-family: "Montserrat";
   padding: 60px 108px;
   font-size: 16px; }
-  .header__back {
+  .header__img {
+    position: absolute;
+    bottom: 0px;
+    left: -1px;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background: url(../../assets/icons/logo.svg);
+    background-repeat: no-repeat;
+    background-size: 700px;
+    background-position-y: -300px;
+    background-position-x: -220px;
+    transform: scaleX(-1);
+    /* guess we better just use a background image, instead of loading a big svg to put 1/4 of it in the view */ }
+  .header__info-back {
     width: 100px;
     height: 20px;
     display: flex;
     align-items: center;
     margin-bottom: 8px; }
-    .header__back-where {
+    .header__info-back-where {
       text-decoration: none;
       color: inherit;
       line-height: 16px;
       font-weight: 400;
       margin-left: 8px; }
-    .header__back-arrow {
+    .header__info-back-arrow {
       border: solid #fdfdfd;
       border-width: 0 3px 3px 0;
       padding: 3px;
       margin-bottom: 2px;
       transform: rotate(135deg);
       -webkit-transform: rotate(135deg); }
-      .header__back-arrow i {
+      .header__info-back-arrow i {
         width: 10px;
         height: 10px; }
-    .header__back:hover {
+    .header__info-back:hover {
       cursor: pointer;
       color: grey; }
-      .header__back:hover i {
+      .header__info-back:hover i {
         border-color: grey; }
-  .header__name {
+  .header__info-name {
     font-weight: 400;
     font-size: 44px;
     line-height: 54px;
     letter-spacing: 3px;
     margin-bottom: 24px; }
-  .header__desc {
+  .header__info-desc {
     width: 400px;
     font-weight: 300;
     line-height: 28px;
     margin-bottom: 16px; }
-  .header__btn {
+  .header__info-btn {
     border-radius: 6px;
     background-color: #fdfdfd;
     text-decoration: none;
@@ -148,28 +163,52 @@ body {
     line-height: 17px;
     font-weight: 400;
     font-size: 14px; }
-    .header__btn:hover {
+    .header__info-btn:hover {
       background-color: #c2c2c2;
       color: #0C1D33; }
+  @media only screen and (max-width: 1681px) {
+    .header__img {
+      background-size: 700px;
+      background-position-y: -300px;
+      background-position-x: -250px; } }
   @media only screen and (max-width: 1200px) {
     .header {
       padding: 60px 54px; }
-      .header__name {
+      .header__img {
+        background-size: 600px;
+        background-position-y: -200px;
+        background-position-x: -200px; }
+      .header__info-name {
         font-size: 35px; }
-      .header__desc {
+      .header__info-desc {
         font-size: 14px; } }
   @media only screen and (max-width: 768px) {
     .header {
-      padding: 60px 27px 0 27px; } }
+      padding: 60px 27px 0 27px; }
+      .header__img {
+        background-size: 500px;
+        background-position-y: -110px; } }
   @media only screen and (max-width: 576px) {
-    .header__desc {
-      width: 100%; } }
+    .header__img {
+      background-size: 400px;
+      background-position-y: -40px;
+      background-position-x: -200px; }
+    .header__info-desc {
+      width: 80%; } }
   @media only screen and (max-width: 390px) {
-    .header__name {
+    .header__img {
+      background-size: 300px;
+      background-position-y: 50px;
+      background-position-x: -150px; }
+    .header__info-name {
       font-size: 30px;
       margin-bottom: 12px; } }
   @media only screen and (max-width: xspx) {
-    .header__name {
+    .header__img {
+      background-size: 300px;
+      background-position-y: 50px;
+      background-position-x: -150px; }
+    .header__info-name {
       font-size: 30px;
       margin-bottom: 12px; } }
 

@@ -1,4 +1,4 @@
-const userName = document.querySelector( ".header__name span" );
+const userName = document.querySelector( ".header__info-name span" );
 
 /* cards data */
 const cardElem = [];

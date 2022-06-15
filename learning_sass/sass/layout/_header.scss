@@ -1,115 +1,163 @@
 .header {
+    z-index: -2;
+    position: relative;
     height: 415px;
     background-color: $primarycolor-darken;
-    // background: url(../../assets/icons/logo.svg);
-    // background-repeat: no-repeat;
-    // background-size: 600px;
-    // background-position-y: -200px;
-    // background-position-x: -200px;
-    // transform: scaleX(-1);
-    /* guess we better just use a background image, instead of loading a big svg to put 1/4 of it in the view */
+
+    &__img {
+        position: absolute;
+        bottom: 0px;
+        left: -1px;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+
+        background: url(../../assets/icons/logo.svg);
+        background-repeat: no-repeat;
+        background-size: 700px;
+        background-position-y: -300px;
+        background-position-x: -220px;
+        transform: scaleX(-1);
+        /* guess we better just use a background image, instead of loading a big svg to put 1/4 of it in the view */
+    }
 
     color: $accent;
     font-family: "Montserrat";
     padding: 60px  $padding-width;
     font-size: 16px;
 
-    &__back {
-        width: 100px;
-        height: 20px;
-        display: flex;
-        align-items: center;
-        margin-bottom: 8px;
+    &__info {
+        // z-index: 0;
+        &-back {
+            width: 100px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
 
-        
-        &-where {
-            text-decoration: none;
-            color: inherit;
-            line-height: 16px;
+            
+            &-where {
+                text-decoration: none;
+                color: inherit;
+                line-height: 16px;
+                font-weight: 400;
+                margin-left: 8px;
+            }
+
+            &-arrow {
+                border: solid $accent;
+                border-width: 0 3px 3px 0;
+                padding: 3px;
+                margin-bottom: 2px;
+
+                transform: rotate(135deg);
+                -webkit-transform: rotate(135deg);
+
+                i {
+                    width: 10px;
+                    height: 10px;
+                }
+            }
+
+            &:hover {
+                cursor: pointer;
+                color: grey;
+
+                i {
+                    border-color: grey;
+                }
+            }
+        }
+
+        &-name {
             font-weight: 400;
-            margin-left: 8px;
+            font-size: 44px;
+            line-height: 54px;
+            letter-spacing: 3px;
+            margin-bottom: $distance;
         }
 
-        &-arrow {
-            border: solid $accent;
-            border-width: 0 3px 3px 0;
-            padding: 3px;
-            margin-bottom: 2px;
+        &-desc {
+            width: 400px;
+            font-weight: 300;
+            line-height: 28px;
+            margin-bottom: 16px;
+        }
 
-            transform: rotate(135deg);
-            -webkit-transform: rotate(135deg);
+        &-btn {
+            border-radius: 6px;
+            background-color: $accent;
+            text-decoration: none;
+            color: $gold;
+            padding: 8px 16px;
+            line-height: 17px;
+            font-weight: 400;
+            font-size: 14px;
 
-            i {
-                width: 10px;
-                height: 10px;
+            &:hover {
+                background-color: rgb(194, 194, 194);
+                color: $primarycolor-darken;
             }
         }
-
-        &:hover {
-            cursor: pointer;
-            color: grey;
-
-            i {
-                border-color: grey;
-            }
-        }
     }
 
-    &__name {
-        font-weight: 400;
-        font-size: 44px;
-        line-height: 54px;
-        letter-spacing: 3px;
-        margin-bottom: $distance;
-    }
-
-    &__desc {
-        width: 400px;
-        font-weight: 300;
-        line-height: 28px;
-        margin-bottom: 16px;
-    }
-
-    &__btn {
-        border-radius: 6px;
-        background-color: $accent;
-        text-decoration: none;
-        color: $gold;
-        padding: 8px 16px;
-        line-height: 17px;
-        font-weight: 400;
-        font-size: 14px;
-
-        &:hover {
-            background-color: rgb(194, 194, 194);
-            color: $primarycolor-darken;
+    @include media-breakpoint-down(xi) {
+        &__img {
+            background-size: 700px;
+            background-position-y: -300px;
+            background-position-x: -250px;
         }
     }
 
     @include media-breakpoint-down(x) {
         padding: 60px ($padding-width / 2);
 
-        &__name {
-            font-size: 35px;
+        &__img {
+            background-size: 600px;
+            background-position-y: -200px;
+            background-position-x: -200px;
         }
 
-        &__desc {
-            font-size: 14px;
+        &__info {
+            &-name {
+                font-size: 35px;
+            }
+
+            &-desc {
+                font-size: 14px;
+            }
         }
     }
 
     @include media-breakpoint-down(md) {
         padding: 60px ($padding-width / 4) 0 ($padding-width / 4);
+
+        &__img {
+            background-size: 500px;
+            background-position-y: -110px;
+        }
     }
 
     @include media-breakpoint-down(sm) {
-        &__desc {
-            width: 100%;
+        &__img {
+            background-size: 400px;
+            background-position-y: -40px;
+            background-position-x: -200px;
+        }
+
+        &__info-desc {
+                width: 80%;
         }
     }
 
     @include media-breakpoint-down(xs) {
-        &__name {
+        &__img {
+            background-size: 300px;
+            background-position-y: 50px;
+            background-position-x: -150px;
+        }
+
+        &__info-name {
             font-size: 30px;
             margin-bottom: $distance / 2;
         }
