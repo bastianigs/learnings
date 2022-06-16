@@ -4,11 +4,6 @@
     .container {
         position: relative;
         top: -50px;
-        // display: grid;
-        // grid-template-columns: repeat(12,1fr);
-        // column-gap: 24px;
-        // row-gap: 24px;
-        padding: 0 $padding-width;
     }
 
     &__card {
@@ -233,9 +228,6 @@
         }
 
         @include media-breakpoint-down(x) {
-            // grid-template-columns: repeat(8,1fr);
-            // padding: 0 ($padding-width / 2);
-
             &__next {
                 grid-column: 1 / 5;
             }
@@ -246,9 +238,6 @@
         }
 
         @include media-breakpoint-down(md) {
-            // grid-template-columns: repeat(4,1fr);
-            // padding: 0 ($padding-width / 4);
-
             &__card:nth-child(2) {
                 grid-column: 1 / 5;
             }

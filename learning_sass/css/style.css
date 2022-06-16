@@ -11,37 +11,7 @@ body {
   grid-template-columns: repeat(12, 1fr);
   column-gap: 24px;
   row-gap: 24px;
-  padding: 0 108px;
-  /*
-    &--oldone--notused {
-        // this is the old .container from _grid.scss
-        // left it here as you may need it, idk
-        max-width: $max-width-fhd;
-        padding: 0 22px;
-        margin: 0 auto;
-        width: 100%;
-
-        @include media-breakpoint-up(lg) {
-            max-width: calc(1720px + 100px);
-            padding: 0 50px;
-        }
-
-        @include media-breakpoint-up(x) {
-            max-width: calc(1720px + 200px);
-            padding: 0 100px;
-        }
-
-        @include media-breakpoint-up(fhd) {
-            max-width: calc(2300px + 300px);
-            padding: 0 150px;
-        }
-
-        @include media-breakpoint-up(tk) {
-            max-width: calc(3440px + 400px);
-            padding: 0 200px;
-        }
-    }
-    */ }
+  padding: 0 108px; }
   @media only screen and (max-width: 1200px) {
     .container {
       grid-template-columns: repeat(8, 1fr);
@@ -54,40 +24,6 @@ body {
     display: block;
     position: static; }
 
-/*
-.homepage-margin-left {
-    margin-left: 30px;
-
-    @include media-breakpoint-up(sm) {
-        margin-left: 60px;
-    }
-
-    @include media-breakpoint-up(lg) {
-        margin-left: 100px;
-    }
-
-    @include media-breakpoint-up(xl) {
-        margin-left: 160px;
-    }
-
-    @include media-breakpoint-up(xi) {
-        margin-left: 260px;
-    }
-
-    @include media-breakpoint-up(fhd) {
-        margin-left: 390px;
-    }
-
-    @include media-breakpoint-up(tk) {
-        margin-left: 260px;
-    }
-
-    @include media-breakpoint-up(ik) {
-        margin-left: 520px
-    }
-}
-
-*/
 .navbar {
   background-color: #172B4D;
   color: #fdfdfd;
@@ -297,8 +233,7 @@ body {
 /* breakpoints are at the end of every major div/block */
 .home-page .container {
   position: relative;
-  top: -50px;
-  padding: 0 108px; }
+  top: -50px; }
 
 .home-page__card {
   height: 100px;
