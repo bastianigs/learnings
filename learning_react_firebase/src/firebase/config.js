@@ -2,13 +2,16 @@
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-app.js";
 
+// anotha' try...
+// import { getStorage } from "firebase/storage";
+
 // third try
 // import { getStorage, getFirestore } from "https://www.gstatic.com/firebasejs/9.8.3/firebase-storage.js";
 
 // first try but with compatibility mode ?!
-import firebase from 'firebase/compat/app';
-import 'firebase/compat/storage';
-import 'firebase/compat/firestore';
+import firebase from '../../node_modules/firebase/app'; // 'firebase/app';
+import "../../node_modules/firebase/compat/storage" //'firebase/compat/storage';
+import "../../node_modules/firebase/compat/firestore" //'firebase/compat/firestore';
 
 // second try.
 // const firebase = require( "firebase" );
