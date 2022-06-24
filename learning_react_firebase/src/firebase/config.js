@@ -17,7 +17,6 @@ import "../../node_modules/firebase/compat/firestore" //'firebase/compat/firesto
 // const firebase = require( "firebase" );
 // require('firebase/storage');
 // require('firebase/firestore');
-// .....
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
